@@ -1,3 +1,4 @@
+#include <iostream>
 #include "funcs.h"
 
 int min(int a, int b, int c, int d)
@@ -29,4 +30,51 @@ int even(int a, int b, int c, int d)
 double average(int a, int b, int c, int d)
 {
     return static_cast<double>(a + b + c + d) / 4;
+}
+
+void fibonacci(int num, int nBegin)
+{
+    if (num < 0 || nBegin < 0) {
+        return;
+    }
+
+    int f{ 0 }, fp{ 0 };
+    for (int i = 1, j = nBegin + num; i <= j; i++) {
+        if (i == 1 || i == 2) {
+            f = 1; 
+            fp = i - 1;
+        } else {
+            int temp = f;
+            f = f + fp;
+            fp = temp;
+        }
+
+        if (i >= nBegin) {
+            std::cout << i << " " << f << std::endl;
+        }
+    }
+}
+
+void bitPrint(int i) 
+{
+    char *ip{ (char *) &i } ;
+    for (int byte = sizeof(i) - 1; byte >= 0; byte--) {
+        for (int bit = 7; bit >= 0; bit--) {
+            std::cout << (((ip[byte]) >> bit) & 1);
+        }
+        std::cout << " ";
+    }
+    std::cout << std::endl;
+}
+
+void bitPrint(double i)
+{
+    char *ip{ (char *) &i } ;
+    for (int byte = sizeof(i) - 1; byte >= 0; byte--) {
+        for (int bit = 7; bit >= 0; bit--) {
+            std::cout << (((ip[byte]) >> bit) & 1);
+        }
+        std::cout << " ";
+    }
+    std::cout << std::endl;
 }

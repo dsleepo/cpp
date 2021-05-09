@@ -23,12 +23,13 @@ int main()
     double r{ 0 };
 
     while (!cin.fail()) {
-        cout << "choice " << choice << cin.fail() << endl;
-
         cout << "Выберите функцию:\n"
             << "1) min\n"
             << "2) even\n"
-            << "3) average"
+            << "3) average\n"
+            << "4) fibonacci\n"
+            << "5) bitPrint int\n"
+            << "6) bitPrint double"
             << endl;
 
         cin >> choice;
@@ -56,6 +57,29 @@ int main()
             r = average(a, b, c, d);
             cout << "average: " << r << endl;
             break;
+
+            case 4: {
+                int n{ 0 }, nBegin{ 0 };
+                cout << "Введите n: ";
+                cin >> n;
+                cout << "Введите nBegin: ";
+                cin >> nBegin;
+                fibonacci(n, nBegin);
+            } break;
+
+            case 5: {
+                int a{ 0 };
+                cout << "Введите число: ";
+                cin >> a;
+                bitPrint(a);
+            } break;
+
+            case 6: {
+                double a{ 0 };
+                cout << "Введите число: ";
+                cin >> a;
+                bitPrint(a);
+            } break;
 
             default:
                 choice = 0;
